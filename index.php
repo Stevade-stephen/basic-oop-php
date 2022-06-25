@@ -2,7 +2,7 @@
 
 require_once "vendor/autoload.php";
 
-use app\{Cart, CartItem, Product};
+use app\{Cart, Product};
 
 $productOne = new Product(1, "Polo Shirt", 89.99, 10);
 $productTwo = new Product(2, "Rolex Watch", 56.56, 10);
