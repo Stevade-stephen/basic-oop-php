@@ -1,0 +1,14 @@
+{
+    "name": "stephen.adehor/php-tutorial",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Stephen"
+        }
+    ],
+    "require": {}
+}
