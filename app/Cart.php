@@ -63,12 +63,15 @@ class Cart
      */
     public function removeItemFromCart(Product $product) : void
     {
+        $flag = false;
         foreach($this->items as $index => $item){
             if($item->getProduct()->getId() === $product->getId()){
                 unset($this->items[$index]);
+                $flag = true;
                 break;
             }
         }
+        if($flag === false) throw CustomException::itemNotFoundInCartException();
 
     }
 

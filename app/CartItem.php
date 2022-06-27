@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace app;
 
 use app\Product;
-use FFI\Exception;
+use app\CustomException;
 
 
 class CartItem
@@ -50,12 +50,12 @@ class CartItem
      * @param float $amount
      * 
      * @return void
-     * @throws Exception
+     * @throws CustomException
      */
     public function increaseQuantity(int $amount = 1) : void
     {
         if($this -> getQuantity() + $amount > $this -> getProduct()->getAvailableQuantity()){
-            throw new Exception("Product quantity exceeded");
+            throw CustomException::availableQuantityExceededException();
         }
 
         $this -> quantity += $amount;
@@ -65,12 +65,12 @@ class CartItem
      * @param float $amount
      * 
      * @return void
-     * @throws Exception
+     * @throws CustomException
      */
-    public function decreaseQuantity(float $amount =  1) : void
+    public function decreaseQuantity(int $amount =  1) : void
     {
         if($this -> getQuantity() - $amount < 1){
-            throw new Exception("Product quantity cannot be less than one");
+            throw CustomException::outOfStockException();
         }
 
         $this -> quantity -= $amount;
