@@ -17,6 +17,8 @@ $cartItemThree = $cart -> addProductToCart($productThree, 4);
 $cartItemOne -> increaseQuantity(4);
 $cartItemTwo -> increaseQuantity(4);
 
+$cartItemOne -> decreaseQuantity();
+
 echo "Number of items in cart" . PHP_EOL;
 echo $cart -> getTotalQuantity() . PHP_EOL;
 
